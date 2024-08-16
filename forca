@@ -1,0 +1,40 @@
+import random
+
+palavras = ["coisa","casa","tempo","ano","homem","brasil","pecado","palavras"]
+
+#escolhendo uma palavra da lista
+palavra_escolhida = random.choice(palavras)
+
+# formando uma lista
+numero_cifra = len(palavra_escolhida)
+letras_escolhidas = [""]*numero_cifra
+
+# Definindo uma número de chances
+chances = len(palavra_escolhida)
+
+contagem = 0
+while chances != -1:
+  print(f"Você tem {chances} chance(s)")
+  print(letras_escolhidas)
+
+  #recebendo uma letra do usuário
+  letra_jogador = input("Digite uma letra: ")
+
+
+  # criando um loop com o mesmo número de letra da palavra sorteada
+  for i in range(len(palavra_escolhida)):
+
+    if palavra_escolhida[i] == letra_jogador:
+      letras_escolhidas[i] = letra_jogador
+      contagem = contagem + 1
+
+    numero_cifra = numero_cifra - 1
+
+  if contagem == len(palavra_escolhida):
+    print("Acertou!")
+    break
+
+  chances = chances - 1
+
+palavra_completa = "".join(letras_escolhidas)
+print(f"A palavra é {palavra_escolhida}")
